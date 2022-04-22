@@ -35,5 +35,23 @@ namespace GraphicsPackage
         MidpointCircleAlgorithm algorithm = new MidpointCircleAlgorithm();
             algorithm.ShowDialog();
         }
+
+        private void btn_ellipse_Click(object sender, EventArgs e)
+        {
+            MidpointEllipseAlgorithm ellipse = new MidpointEllipseAlgorithm();
+            ellipse.ShowDialog();
+        }
+
+        private void btn_2d_Click(object sender, EventArgs e)
+        {
+            TwoDimensionalTransformations twoDimension = new TwoDimensionalTransformations();
+            twoDimension.ShowDialog();
+        }
+
+        private void btn_3d_Click(object sender, EventArgs e)
+        {
+            var threeDimension = new ThreeDimensionalTransformations();
+            threeDimension.ShowDialog();
+        }
     }
 }

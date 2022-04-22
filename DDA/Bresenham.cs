@@ -21,33 +21,49 @@ namespace GraphicsPackage
 
         }
 
-        private void Bresenham_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
+            clearPBox(linePanel);
+
+            if (HasError())
+                return;
+
             int x1 = int.Parse(X1.Text);
             int y1 = int.Parse(Y1.Text);
-
             int x2 = int.Parse(X2.Text);
             int y2 = int.Parse(Y2.Text);
 
-            
-
             BresenhamAlgo(x1,y1 ,x2 ,y2);
         }
+
+        private bool HasError()
+        {
+            try
+            {
+                int.Parse(X1.Text);
+                int.Parse(Y1.Text);
+                int.Parse(X2.Text);
+                int.Parse(Y2.Text);
+
+            }
+            catch (System.FormatException)
+            {
+                if (X1.Text.Equals("") || X2.Text.Equals("") || Y1.Text.Equals("") || Y2.Text.Equals(""))
+                {
+                    MessageBox.Show("Missing An Input. Please fill all text fields", "EMPTY", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong input type. Please enter only integer numbers", "WRONG INPUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
         public void BresenhamAlgo(int x0, int y0, int xEnd, int yEnd)
         {
             int x, y;
@@ -107,14 +123,11 @@ namespace GraphicsPackage
             g.Dispose();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+
+        private void clearPBox(PictureBox PBox)
         {
-
-        }
-
-        private void X1_TextChanged(object sender, EventArgs e)
-        {
-
+            Graphics g = PBox.CreateGraphics();
+            g.Clear(Color.Black);
         }
     }
 }

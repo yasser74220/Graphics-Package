@@ -57,7 +57,6 @@
             this.X1.Name = "X1";
             this.X1.Size = new System.Drawing.Size(100, 20);
             this.X1.TabIndex = 1;
-            this.X1.TextChanged += new System.EventHandler(this.X1_TextChanged);
             // 
             // Y1
             // 
@@ -79,7 +78,6 @@
             this.Y2.Name = "Y2";
             this.Y2.Size = new System.Drawing.Size(100, 20);
             this.Y2.TabIndex = 4;
-            this.Y2.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // linePanel
             // 
@@ -88,7 +86,6 @@
             this.linePanel.Size = new System.Drawing.Size(411, 332);
             this.linePanel.TabIndex = 5;
             this.linePanel.TabStop = false;
-            this.linePanel.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -107,7 +104,6 @@
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Y1";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -144,7 +140,6 @@
             this.Controls.Add(this.button1);
             this.Name = "Bresenham";
             this.Text = "Form2";
-            this.Load += new System.EventHandler(this.Bresenham_Load);
             ((System.ComponentModel.ISupportInitialize)(this.linePanel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -15,7 +15,7 @@ namespace GraphicsPackage
         public MidpointCircleAlgorithm()
         {
             InitializeComponent();
-            this.Text = "MidpointCircle Algorithm";
+            this.Text = "Midpoint Circle Algorithm";
             #region Config
 
             circle.BackColor = Color.Black;
@@ -25,14 +25,12 @@ namespace GraphicsPackage
             #endregion
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             clearPBox(circle);
+
+            if (HasError())
+                return;
 
             int x = circle.Width / 2; 
             int y = circle.Height / 2;
@@ -63,6 +61,33 @@ namespace GraphicsPackage
             
         }
 
+        private bool HasError()
+        {
+            try
+            {
+                int.Parse(Radius.Text);
+                int.Parse(xCenter.Text);
+                int.Parse(yCenter.Text);
+
+            }
+            catch (System.FormatException)
+            {
+                if (Radius.Text.Equals("") || xCenter.Text.Equals("") || yCenter.Text.Equals(""))
+                {
+                    MessageBox.Show("Missing An Input. Please fill all text fields", "EMPTY", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong input type. Please enter only integer numbers", "WRONG INPUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+                return true;
+            }
+
+            return false;
+        }
+
         // drawing set of points to screen
         private void circleplotpoints(int xcenter, int ycenter,Circle circPt)
         {
@@ -81,8 +106,14 @@ namespace GraphicsPackage
 
         private void clearPBox(PictureBox PBox)
         {
-            Graphics g = PBox.CreateGraphics();         
+            Point p1X = new Point(0, PBox.Height / 2);
+            Point p2X = new Point(PBox.Width, PBox.Height / 2);
+            Point p1Y = new Point(PBox.Width / 2, 0);
+            Point p2Y = new Point(PBox.Width / 2, PBox.Height);
+            Graphics g = PBox.CreateGraphics();
             g.Clear(Color.Black);
+            g.DrawLine(new Pen(Color.White), p1X, p2X);
+            g.DrawLine(new Pen(Color.White), p1Y, p2Y);
         }
        
         private void SetPixel(int cx, int cy, Color c)
@@ -104,24 +135,5 @@ namespace GraphicsPackage
             g.Dispose();
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void Radius_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void circle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Xdw_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
