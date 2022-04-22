@@ -60,6 +60,7 @@
     <Compile Include="Bresenham.Designer.cs">
       <DependentUpon>Bresenham.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ellipse.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,8 +73,27 @@
     <Compile Include="MidpointCircleAlgorithm.Designer.cs">
       <DependentUpon>MidpointCircleAlgorithm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MidpointEllipseAlgorithm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MidpointEllipseAlgorithm.Designer.cs">
+      <DependentUpon>MidpointEllipseAlgorithm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Point3D.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThreeDimensionalTransformations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThreeDimensionalTransformations.Designer.cs">
+      <DependentUpon>ThreeDimensionalTransformations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TwoDimensionalTransformations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TwoDimensionalTransformations.Designer.cs">
+      <DependentUpon>TwoDimensionalTransformations.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Bresenham.resx">
       <DependentUpon>Bresenham.cs</DependentUpon>
     </EmbeddedResource>
@@ -86,6 +106,9 @@
     <EmbeddedResource Include="MidpointCircleAlgorithm.resx">
       <DependentUpon>MidpointCircleAlgorithm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MidpointEllipseAlgorithm.resx">
+      <DependentUpon>MidpointEllipseAlgorithm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -96,6 +119,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ThreeDimensionalTransformations.resx">
+      <DependentUpon>ThreeDimensionalTransformations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TwoDimensionalTransformations.resx">
+      <DependentUpon>TwoDimensionalTransformations.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

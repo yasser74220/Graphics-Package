@@ -46,7 +46,6 @@
             this.circle.Size = new System.Drawing.Size(544, 465);
             this.circle.TabIndex = 0;
             this.circle.TabStop = false;
-            this.circle.Click += new System.EventHandler(this.circle_Click);
             // 
             // xCenter
             // 
@@ -63,7 +62,6 @@
             this.yCenter.Size = new System.Drawing.Size(104, 20);
             this.yCenter.TabIndex = 2;
             this.yCenter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.yCenter.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Radius
             // 
@@ -72,7 +70,6 @@
             this.Radius.Size = new System.Drawing.Size(107, 20);
             this.Radius.TabIndex = 3;
             this.Radius.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Radius.TextChanged += new System.EventHandler(this.Radius_TextChanged);
             // 
             // button1
             // 
@@ -92,7 +89,6 @@
             this.Xdw.Size = new System.Drawing.Size(73, 13);
             this.Xdw.TabIndex = 5;
             this.Xdw.Text = "X displacment";
-            this.Xdw.Click += new System.EventHandler(this.Xdw_Click);
             // 
             // label2
             // 
@@ -112,7 +108,6 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Radius";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // MidpointCircleAlgorithm
             // 

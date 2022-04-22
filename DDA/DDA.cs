@@ -22,21 +22,14 @@ namespace GraphicsPackage
            
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            int x1 = 0;
-            int y1 = 0;
+
+            if (HasError())
+                return;
+
+            int x1 = int.Parse(X1.Text);
+            int y1 = int.Parse(Y1.Text);
 
             int x2 = int.Parse(X2.Text);
             int y2 = int.Parse(Y2.Text);
@@ -70,6 +63,34 @@ namespace GraphicsPackage
             return (int)f; 
         }
 
+        private bool HasError()
+        {
+            try
+            {
+                int.Parse(X1.Text);
+                int.Parse(Y1.Text);
+
+                int.Parse(X2.Text);
+                int.Parse(Y2.Text);
+
+            }
+            catch (System.FormatException)
+            {
+                if (X1.Text.Equals("") || X2.Text.Equals("") || Y1.Text.Equals("") || Y2.Text.Equals(""))
+                {
+                    MessageBox.Show("Missing An Input. Please fill all text fields", "EMPTY", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Wrong input type. Please enter only integer numbers", "WRONG INPUT", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+                return true;
+            }
+
+            return false;
+        }
 
         private void clearPBox(PictureBox PBox)
         {
@@ -133,37 +154,6 @@ namespace GraphicsPackage
             g.Dispose();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
 
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bf1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Y1_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
-
-        private void Y2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bf1_MouseMove(object sender, MouseEventArgs e)
-        {
-            Point Default = new Point(bf1.Width / 2, bf1.Height / 2);
-            Point point = new Point(e.X  , bf1.Height - e.Y  );
-            DDAlgorithm(Default, point);
-
-        }
     }
 }
