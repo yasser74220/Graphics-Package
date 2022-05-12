@@ -24,15 +24,22 @@ namespace GraphicsPackage
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Point p1X = new Point(0, bf1.Height / 2);
+            Point p2X = new Point(bf1.Width, bf1.Height / 2);
+            Point p1Y = new Point(bf1.Width / 2, 0);
+            Point p2Y = new Point(bf1.Width / 2, bf1.Height);
+            Graphics g = bf1.CreateGraphics();
 
+            g.DrawLine(new Pen(Color.White), p1X, p2X);
+            g.DrawLine(new Pen(Color.White), p1Y, p2Y);
             if (HasError())
                 return;
 
-            int x1 = int.Parse(X1.Text);
-            int y1 = int.Parse(Y1.Text);
+            int x1 = 250+ int.Parse(X1.Text);
+            int y1 = 250 + int.Parse(Y1.Text);
 
-            int x2 = int.Parse(X2.Text);
-            int y2 = int.Parse(Y2.Text);
+            int x2 = 250 + int.Parse(X2.Text);
+            int y2 = 250 + int.Parse(Y2.Text);
 
 
             if(x1 > bf1.Width ||
@@ -91,18 +98,12 @@ namespace GraphicsPackage
 
             return false;
         }
-
-        private void clearPBox(PictureBox PBox)
-        {
-            Graphics g = PBox.CreateGraphics();
-            g.Clear(Color.Black);
-        }
+ 
 
         private void DDAlgorithm(Point p1,Point p2)
         {
 
-            clearPBox(bf1);
-            int steps;
+             int steps;
             int dx = p2.X - p1.X;
             int dy = p2.Y - p1.Y;
             float xIncrement, yIncrement, x = p1.X, y = p1.Y;
@@ -154,6 +155,10 @@ namespace GraphicsPackage
             g.Dispose();
         }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Graphics g = bf1.CreateGraphics();
+            g.Clear(Color.Black);
+        }
     }
 }

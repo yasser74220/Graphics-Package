@@ -18,21 +18,27 @@ namespace GraphicsPackage
             this.Text = "Bresenham Algorithm";
 
             linePanel.BackColor = Color.Black;
-
+      
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            clearPBox(linePanel);
-
+ 
             if (HasError())
                 return;
 
-            int x1 = int.Parse(X1.Text);
-            int y1 = int.Parse(Y1.Text);
-            int x2 = int.Parse(X2.Text);
-            int y2 = int.Parse(Y2.Text);
-
+            int x1 = 250 + int.Parse(X1.Text);
+            int y1 = 250 + int.Parse(Y1.Text);
+            int x2 = 250 + int.Parse(X2.Text);
+            int y2 = 250 + int.Parse(Y2.Text);
+            Point p1X = new Point(0, linePanel.Height / 2);
+            Point p2X = new Point(linePanel.Width, linePanel.Height / 2);
+            Point p1Y = new Point(linePanel.Width / 2, 0);
+            Point p2Y = new Point(linePanel.Width / 2, linePanel.Height);
+            Graphics g = linePanel.CreateGraphics();
+          
+            g.DrawLine(new Pen(Color.White), p1X, p2X);
+            g.DrawLine(new Pen(Color.White), p1Y, p2Y);
             BresenhamAlgo(x1,y1 ,x2 ,y2);
         }
 
@@ -71,7 +77,7 @@ namespace GraphicsPackage
             int Dy = Math.Abs(yEnd - y0);
             int Dp = (2 * Dy) - Dx;
             int twoDy = 2 * Dy;
-            int twoDyMinusDx = 2 * (Dx - Dy);
+            int twoDyMinusDx = 2 * (Dy - Dx);
             if (x0 > xEnd)
             {
                 x = xEnd;
@@ -118,15 +124,21 @@ namespace GraphicsPackage
             dPoint.X = dPoint.X - DeltaX; ;
             dPoint.Y = dPoint.Y - DeltaY;
             Rectangle rect = new Rectangle(dPoint, new Size(Stroke, Stroke));
-
+            
             g.FillRectangle(brush, rect);
             g.Dispose();
         }
 
+ 
 
-        private void clearPBox(PictureBox PBox)
+        private void linePanel_Click(object sender, EventArgs e)
         {
-            Graphics g = PBox.CreateGraphics();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Graphics g = linePanel.CreateGraphics();
             g.Clear(Color.Black);
         }
     }

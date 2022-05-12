@@ -658,5 +658,25 @@ namespace GraphicsPackage
                 listView.Items.Add(item);
             }
         }
+
+        private void txtbox_shz_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_shear_x_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_shear_y_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
